@@ -1,0 +1,9 @@
+{{outlet}}
+<h1>All comments</h1>
+{{#each (sort-by "date:desc" model) as |comment|}}
+<div class="list-of-comments">
+    <p>{{comment.date}}</p>
+    <p>{{comment.body}}</p>
+    <button {{action 'deleteComment' comment}}>delete</button>
+</div>
+{{/each}}

@@ -1,0 +1,12 @@
+{{#item-lister as |il|}}
+    <div class="container">
+        {{#link-to 'authors.detail' author.id}}
+            {{il.avatar data-test-author-photo author.photo}}
+        {{/link-to}}
+        <span>
+            {{il.title data-test-author-full-name author.fullName}}
+        </span>
+        <div class="buttons">{{#link-to 'authors.edit' author.id tagName='button'}}Edit{{/link-to}}</div>
+        <div class="buttons"><button data-test-delete-author {{action onDelete}}>delete</button></div>
+    </div>
+{{/item-lister}}

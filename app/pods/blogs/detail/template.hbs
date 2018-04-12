@@ -1,0 +1,35 @@
+<div class="title-bar">
+    <div class="title">
+        {{model.title}}
+    </div>
+    <div class="crud-oprations">
+        {{#link-to 'blogs.edit' model.id tagName='button'}}edit{{/link-to}}
+        <button {{action 'deleteBlog' model}}>delete</button>
+    </div>
+</div>
+
+
+
+<p>{{model.dateFormated}}</p>
+<p>By {{#link-to 'authors.detail' model.author.id}}{{model.author.fullName}}{{/link-to}}</p>
+<p>{{model.body}}</p>
+
+<div class="comment-container">
+    <h3>Comments</h3>
+    
+    {{! add comment }}
+<div class="add-comment-form">
+    {{textarea data-test-new-comment-body value=commentBody placeholder='Write your comment...' id="comment-text"}}
+    <button data-test-save-comment {{action 'addComment' model}}>add comment</button>
+</div>
+   
+
+    {{! list all comments }}
+    {{#each (sort-by 'date:desc' model.comment) as |comment|}}
+        <div data-test-comment-id=comment.id class="single-comment">
+        <small>{{comment.date}}</small>
+        <p data-test-comment-body>{{comment.body}}</p>
+      </div>
+        
+    {{/each}}
+</div>

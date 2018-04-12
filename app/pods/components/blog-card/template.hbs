@@ -1,0 +1,11 @@
+{{#item-lister as |il|}}
+    {{il.title blog.title data-test-blog-title}}
+    
+    <span class="blog-author">{{blog.author.fullName}}</span>
+    <small>{{blog.dateFormated}}</small>
+    <div class="blog-body">        
+        {{blog.body}}
+    </div>
+    <button data-test-read-more{{action onClick}} class="read-more">read more</button>
+{{/item-lister}}
+{{yield}}

@@ -1,0 +1,8 @@
+<h1>Add Author</h1>
+
+<p>First Name {{input data-test-first-name value=firstName}}</p>
+<p>Last Name {{input data-test-last-name value=lastName}}</p>
+{{!-- <p>Photo URL{{input value=photo}}</p> --}}
+<p>Biography </p><p>{{textarea cols="30" rows="10" value=bio}}</p>
+
+<button {{action 'addAuthor'}} class="add-author" data-test-save-author >Save</button>

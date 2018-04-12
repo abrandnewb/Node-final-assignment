@@ -1,0 +1,16 @@
+{{outlet}}
+<div class="title-bar">
+    <div class="title">
+        Authors
+    </div>
+    <div class="crud-oprations">
+        {{#link-to data-test-add-author 'authors.new' tagName='button'}}Add Author{{/link-to}}
+    </div>
+</div>
+{{#each (sort-by 'dateCreated:desc' model) as |author|}}
+    {{author-card  author=author 
+        onDelete = (route-action 'deleteAuthor' author)
+        data-test-author-id=author.id
+    }}        
+{{/each}}
+

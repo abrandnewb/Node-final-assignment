@@ -1,0 +1,15 @@
+<div class="title-bar">
+    <div class="title">
+        All Blogs
+    </div>
+    <div class="crud-oprations">
+        {{#link-to 'blogs.new' tagName='button'}}Add blog{{/link-to}}
+    </div>
+</div>
+
+{{#each (sort-by 'date:desc' model) as |blog|}}
+    {{blog-card blog=blog 
+        onClick=(route-action 'displayBlog' blog.id)
+        data-test-blog-id=blog.id
+    }}
+{{/each}}
